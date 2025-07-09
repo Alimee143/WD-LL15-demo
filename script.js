@@ -28,13 +28,11 @@ async function getOpenAIResponse(userPrompt) {
         'Authorization': `Bearer ${apiKey}` // apiKey comes from secrets.js
       },
       body: JSON.stringify({
-        model: 'gpt-4.1',
+        model: 'gpt-4.1', // You can also use 'gpt-4o' or 'gpt-4-turbo'
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
         ],
-        // Use your prompt ID as a tool for OpenAI (if needed)
-        tools: [{ type: "retrieval", id: "pmpt_686c651fcd9081968e1baa872ee67b1006683c9e7244bb76" }],
         max_tokens: 100
       })
     });
